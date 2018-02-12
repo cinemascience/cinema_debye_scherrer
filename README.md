@@ -55,6 +55,7 @@ You can view ``data/examples.cdb/data.csv`` as an example of the comma-delimited
 
 Paths to datasets and information how to view each dataset is stored in the ``databases.json`` in the top-level of this repository.
 To add a new Cinema database to be visualized with Cinema:Debye-Scherrer you must add the path to the Cinema database to ``databases.json``.
+Open the file ``databases.json`` in this repository to see an example.
 
 Below, we describe the attributes that describe the attributes in ``databases.json`` that should be added for a new dataset.
 
@@ -82,6 +83,8 @@ Once you have loaded the viewer in a browser, then you can change which columns 
 To change which columns are displayed or change a column to a logarithmic scale at the top of the viewer select the "Axis Panel" option from the "Select Panel" drop-down menu.
 On the left-hand side of the parallel coordinates plot, all the columns in the file should be displayed with checkboxes to hide or convert the axes to a logarithmic scale.
 Select which columns to modify, then click the button labeled "Modify Columns" to see the changes.
+
+You can click the "<" arrow between the options and parallel coordinates plots to collapse this panel.
 
 ## Change opacity and smooth lines in web browser
 
