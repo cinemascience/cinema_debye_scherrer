@@ -62,7 +62,7 @@ Optional attributes include
   * ``logscale``: A regular expression for columns to display on a logarithmic axis.
   * ``picked`` : A list of integers that corresponds to the index in the ``data.csv`` of data points to automatically highlight.
   * ``smoothLines``: A boolean set to ``true`` to use curved paths on the parallel coordinates plot or ``false`` to use straight lines.
-  * ``lineOpacity``: An integer from 0 to 1 that sets the transparency of the paths on the parallel coordiantes plot.
+  * ``lineOpacity``: A float from 0 to 1 that sets the transparency of the paths on the parallel coordiantes plot.
 
 # Citation
 
