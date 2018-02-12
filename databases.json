@@ -2,9 +2,22 @@
         {
                 "name" : "Example (Test Highlight)",
                 "directory" : "data/example.cdb",
-                "filter" : "FILE",
-                "logscale" : "anneal temp|anneal time",
                 "picked" : [1, 3],
+                "smoothLines" : true,
+                "lineOpacity" : 1.0
+        },
+        {
+                "name" : "Example (Test Filter and Logscale)",
+                "directory" : "data/example.cdb",
+                "filter" : "BaBrCl|File|FILE",
+                "logscale" : "Temp",
+                "smoothLines" : true,
+                "lineOpacity" : 1.0
+        },
+        {
+                "name" : "Example (Test Expression)",
+                "directory" : "data/example.cdb",
+                "filter" : "^((?!CHISQ|PF6).)*$",
                 "smoothLines" : true,
                 "lineOpacity" : 1.0
         },
