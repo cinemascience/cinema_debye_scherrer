@@ -48,6 +48,7 @@ Here, we provide a brief summary of the specification.
 A Cinema database is a directory with a ``data.csv`` file.
 This ``data.csv`` file is a comma-delimited ASCII file with a header (ie. first row contains names for each column), and each row corresponds to a data point.
 The final set of columns may contain relative paths to images, and these columns must be named ``FILE``, ``FILE2``, etc.
+If a data point does not have a value for a column, then it should be entered as ``NaN``.
 
 We include a Cinema database as an example in ``data/example.cdb`` of this repository with the following directory structure
 ```
@@ -119,6 +120,12 @@ Here, we provide some steps that guide the user through exploring the example da
 To start
   1. Open ``main.html`` in your browser.
   1. From the drop-down menu under "Select Database" at the top of the page, select the "Example (Display All)" option. Then click the button next to it labeled "Load". You should notice more columns appear in the parallel coordinates plot.
+  1. In the panel to the left of the parallel coordinates plot, click the "Select All" checkbox under the "Hide" column. This should check all the boxes in the column. Unselect the checkboxes for "Temp [C]", "CHISQ", and "BaBrCl_VOL". Click the checkbox under the "Logscale" column next to "Temp [C]". Now click the "Modify Columns" button. You should see three columns in the parallel coordinates plot. The temperature column ("Temp [C]") should have a logarithmic scale.
+  1. In the parallel coordinates plot, you can click on a axes to display on a subset of samples. Click on the "Temp [C]" axes in the parallel coordinates plot near 500 and drag upwards to 800. A gray box should appear over the axes and you should see only the four paths that have temperature values above 500. There should only be four images displayed in the image spread as well.
+  1. Move your cursor over the paths in the parallel coordinates plot and the images below. You should notice the paths turn blue and a panel display its information from the ``data.csv`` file.
+  1. Click the tab above the image spread labeled "Scatter Plot". A scatter plot of "CHISQ" versus "Temp [C]" should appear. Click on one of the points in the scatter plot. It should turn red and the corresponding path in the parallel coordinates plot should turn red as well.
+  1. Click the tab above the scatter plot labeled "Table". A tablular display of the information for the four points should appear. Click on the titles in the table to sort. Click on the row highlighted red to deselect that point. The red highlighting should be removed in both the table and parallel coordinates plot.
+  1. Finally, select "Display Panel" from drop-down menu at the top of the page. The panel to the left of the parallel coordinates plot should change automatically. Click the checkbox next to "Smooth lines" and the lines in the parallel coordinates plot should become straight. Change the slider below it to change the transperancy of the paths.
 
 # Citation
 
