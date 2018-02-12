@@ -48,7 +48,6 @@ data/
 ## Adding a new dataset to the viewer
 
 Paths to datasets and information how to view each dataset is stored in the ``databases.json`` in the top-level of this repository.
-We include a few examples inside ``databases.json`` that visualize the example dataset in several configurations.
 To add a new Cinema database to be visualized with Cinema:Debye-Scherrer you must add the path to the Cinema database to ``databases.json``.
 
 Below, we describe the attributes that describe the attributes in ``databases.json`` that should be added for a new dataset.
@@ -58,11 +57,18 @@ The required attributes for each entry in ``databases.json`` are
   * ``directory``: A relative path to the Cinema database.
 
 Optional attributes include
-  * ``filter`` : A regular expression for columns to exclude in the visualization.
-  * ``logscale``: A regular expression for columns to display on a logarithmic axis.
-  * ``picked`` : A list of integers that corresponds to the index in the ``data.csv`` of data points to automatically highlight.
-  * ``smoothLines``: A boolean set to ``true`` to use curved paths on the parallel coordinates plot or ``false`` to use straight lines.
-  * ``lineOpacity``: An integer from 0 to 1 that sets the transparency of the paths on the parallel coordiantes plot.
+  * ``filter`` : A regular expression for columns to initially exclude in the visualizations. You can add and hide columns afterwards using controls in the viewer.
+  * ``logscale``: A regular expression for columns to initially display on a logarithmic axis. You can add and hide columns afterwards using controls in the viewer.
+  * ``picked`` : A list of integers that corresponds to the index in the ``data.csv`` of data points to initially highlight. You can select and deselect points later.
+  * ``smoothLines``: A boolean set to ``true`` to use curved paths on the parallel coordinates plot or ``false`` to use straight lines. There are controls in the viewer to change this option.
+  * ``lineOpacity``: A float from 0 to 1 that sets the transparency of the paths on the parallel coordiantes plot. There are controls in the viewer to change this option.
+
+We include a few examples inside ``databases.json`` that visualize the example dataset in several configurations.
+The following are a description of the example entries
+  * ``Example (Test Highlight)``: Shows an example how to highlight the first and third entries from the ``data.csv`` file. You should see these points highlighted in red in the parallel coordinates plot, scatter plot, and tablular views.
+  * ``Example (Test Filter and Logscale)``: Shows an example how to initially not display any columns that contain ``BaBrCl`` and make the ``Temp [C]`` column logarithmically scaled.
+  * ``Example (Test Expression)``: An example that shows how to initially only display columns that contain ``CHISQ`` or ``PF6``.
+  * ``Example (Display All)``: Simple example that shows the entire dataset.
 
 # Citation
 
