@@ -1,7 +1,7 @@
 # Cinema:Debye-Scherrer
 
 Cinema:Debye-Scherrer is an interactive visualization tool for exploring datasets.
-It has been applied to multi-dataset Rietveld analyses for the validation, scientific discovery, and experimental design.
+It has been applied to multi-dataset Rietveld analyses for the validation of the analyses, scientific discovery, and experimental design.
 
 Cinema:Debye-Scherrer is a web-based data exploration tool built on from the Cinema Components (https://github.com/lanl/cinema_components) and D3 (https://d3js.org/) JavaScript libraries.
 The different visualizations (eg. scatter plot) in Cinema:Debye-Scherrer are interactive and linked with each other.
@@ -25,9 +25,11 @@ There is an example dataset included in this repository at ``data/example.cdb`` 
 
 ## Loading the viewer
 
-You can open the file ``main.html`` with your preferred browser.
+Cinema:Debye-Scherrer can be opened with a web browser.
+To start, you should open the file ``main.html`` with your preferred browser.
 This is will load Cinema:Debye-Scherrer in your browser to interact with your datasets.
 
+This should be sufficient for many browsers.
 Some browsers may have advanced security settings enabled which prevents reading data files from your computer.
 If you encounter problems viewing your datasets, then you can run a simple HTTP server to serve your datasets.
 To start a HTTP server using Python on an Unix operating system, in the directory containing ``main.html`` do
