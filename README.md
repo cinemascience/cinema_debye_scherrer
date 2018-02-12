@@ -10,8 +10,11 @@ This means that hovering or clicking on paths, rows, or points in one visualizat
 An overview of Cinema:Debye-Scherrer in a web browser is shown below.
 Cinema:Debye-Scherrer displays datasets in a parallel coordinates plot at the top of the page.
 To the left of the parallel coordinates plot is a panel for changing display options; shown below is the panel for hiding and convert axes to a logarithmic scale.
-Below there are tabs to switch between an image spread, scatter plot, and tabular view.
+Below there are tabs to switch between an image spread, scatter plot, and tabular view; below the image spread view is shown.
 At the top of the page, there are options to select which database to load ("Select Database"), select which display options to appear in panel ("Select Panel"), save ("Download Settings"), or reset to original configuration ("Reset").
+Hovering over a point highlights it in all visualizations; this is the image and path highlighted in blue below.
+Hovering over a point displays its values in the lower right window as well.
+Paths can be permanently highlighted by clicking; permanently highlighted paths are shown as red in the parallel coordinates plot shown below.
 
 ![Overview](docs/images/overview.png)
 
