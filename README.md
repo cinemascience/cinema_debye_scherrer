@@ -13,8 +13,8 @@ In this section, we provide a instructions for common operations.
 
 You can open then open the file ``main.html`` with your preferred browser.
 
-Some browsers may have advanced security settings enabled which prevents reading data files.
-If you encounter problems viewing data, then you can run a simple HTTP server.
+Some browsers may have advanced security settings enabled which prevents reading data files from your computer.
+If you encounter problems viewing your datasets, then you can run a simple HTTP server to serve your datasets.
 To start a HTTP server using Python on an Unix operating system, in the directory containing ``main.html`` do
 ```
 python -m SimpleHTTPServer
@@ -25,12 +25,12 @@ Then, you can navigate to ``main.html`` from the URL ``http://localhost:8000/mai
 ## Adding a new database
 
 Paths to datasets and information how to view each dataset is stored in the ``databases.json`` in the top-level of this repository.
-We include an extra of a dataset.
+We include an example of a dataset.
 
 # Citation
 
 We have submitted an article that details Cinema:Debye-Scherrer to a peer-reviewed journal, and this citation will be updated upon acceptance to a journal.
-However, in the meantime, if you use the Cinema:Debye-Scherrer software you may use the following citation to reference our work
+However, in the meantime, if you use the Cinema:Debye-Scherrer software you may reference our work with the following citation
 ```
 @article{CinemaDebyeScherrer2018,
   author = "{Vogel, S. and Biwer, C. and Rogers, D. H. and Ahrens, J. P. and Hackenberg, R. E. and Onken, D. and Zhang, J.}",
