@@ -27,7 +27,7 @@ Then, you can navigate to ``main.html`` from the URL ``http://localhost:8000/mai
 ## Input data format
 
 The input data format to Cinema:Debye-Scherrer is a called a Cinema database.
-We use the Cinema databse specification D which is described in detail at https://github.com/lanl/cinema/blob/master/specs/dietrich/01/cinema_specD_v011.pdf.
+We use the Cinema database specification D which is described in detail at https://github.com/lanl/cinema/blob/master/specs/dietrich/01/cinema_specD_v011.pdf.
 A brief summary of the specification is a directory with a ``data.csv`` file.
 This ``data.csv`` file is a comma-delimited ASCII file with a header, and each row corresponds to a data point.
 The final set of columns may contain relative paths to images, and these columns must be named ``FILE``, ``FILE2``, etc.
