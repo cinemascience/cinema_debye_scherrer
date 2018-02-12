@@ -18,7 +18,7 @@ Paths can be permanently highlighted by clicking; permanently highlighted paths 
 
 ![Overview](docs/images/overview.png)
 
-# Instructions
+# Instructions and tutorial
 
 In this section, we provide instructions for common operations.
 There is an example dataset included in this repository at ``data/example.cdb`` that is used throughout these instructions.
@@ -112,6 +112,13 @@ If you have used the viewer and select or deselected entries in the ``data.csv``
 At the top of the viewer there is a section called "Download Settings" with a text field and button.
 When you click the button with "Download" on it, then you will download a JSON file that can replace the existing ``databases.json`` file to load your saved state.
 The text field renames the downloaded file; by default, it is set to ``databases.json``.
+
+## Simple tutorial
+
+Here, we provide some steps that guide the user through exploring the example dataset.
+To start
+  1. Open ``main.html`` in your browser.
+  1. From the drop-down menu under "Select Database" at the top of the page, select the "Example (Display All)" option. Then click the button next to it labeled "Load". You should notice more columns appear in the parallel coordinates plot.
 
 # Citation
 
