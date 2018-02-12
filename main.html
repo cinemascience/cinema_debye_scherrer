@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<!--
+Copyright 2017 Los Alamos National Laboratory 
+
+Redistribution and use in source and binary forms, with or without 
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this 
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, 
+   this list of conditions and the following disclaimer in the documentation 
+   and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors 
+   may be used to endorse or promote products derived from this software 
+   without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE 
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR 
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, 
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<html lang="en">
+<head>
+    <title>Cinema:Studio</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Christopher M. Biwer">
+    <meta name="author" content="Cameron Tauxe">
+    <meta name="author" content="James Ahrens">
+    <link rel="stylesheet" href="cinema-components/css/PcoordSVG.css">
+    <link rel="stylesheet" href="cinema-components/css/ImageSpread.css">
+    <link rel="stylesheet" href="cinema-components/css/Query.css">
+    <link rel="stylesheet" href="cinema-components/css/ScatterPlotSVG.css">
+    <link rel="stylesheet" href="css/viewer.css">
+    <script src="js/d3.min.js"></script>
+    <script src="cinema-components/src/Database.js"></script>
+    <script src="cinema-components/src/Component.js"></script>
+    <script src="cinema-components/src/Pcoord.js"></script>
+    <script src="cinema-components/src/PcoordSVG.js"></script>
+    <script src="cinema-components/src/ImageSpread.js"></script>
+    <script src="cinema-components/src/ScatterPlot.js"></script>
+    <script src="cinema-components/src/ScatterPlotSVG.js"></script>
+    <script src="cinema-components/src/Table.js"></script>
+    <script src="cinema-components/src/TableSVG.js"></script>
+    <script src="cinema-components/src/Query.js"></script>
+    <script src="js/Display.js"></script>
+    <script src="js/Axial.js"></script>
+</head>
+<body>
+    <div id="top">
+        <div id="header">
+            <h1>Cinema:Studio</h1>
+            <!--controls to select and load databases-->
+            <div id="databaseControls">
+                <span id="databaseLabel">Select Database:</span>
+                <br>
+                <select id="database"></select>
+                <button id="loadButton" onclick="load()">Load</button>
+            </div>
+            <!--controls to select and load query panel-->
+            <div id="panelControls">
+                <span id="controlLabel">Select Panel:</span>
+                <br>
+                <select id="panelControlsSelector" class="icon-menu" onchange="changeQuery(this.options[this.selectedIndex].value);toggleOpen();">
+                    <option selected value="2">Axis Panel</option>
+                    <option value="1">Display Panel</option>
+                    <option value="0">Find Similar Panel</option>
+                 </select>
+            </div>
+            <!--Controls for downloading settings-->
+            <div id="downloadControls">
+                <span id="controlLabel">Download Settings:</span>
+                <br>
+                <input id="databaseName" type="text" name="name" value="database.json">
+                <input type="submit" value="Download" onclick="downloadSettings(d3.select('#databaseName').node().value)">
+            </div>
+            <!--Controls for reset-->
+            <div id="resetControls">
+                <span id="controlLabel">Reset:</span>
+                <br>
+                <button onclick="loadDatabaseInfo('databases.json');load()">Reset</button>
+            </div>
+        </div>
+        <div id="pcoordArea">
+            <!--slide-out control panel for defining a custom path and querying for results similar to it-->
+            <div id="slideOut">
+                <div id="slideOutContents" style="display:none;">
+                    <div id="queryContainer"></div>
+                </div>
+                <!--button to show/hide the panel-->
+                <div id="showHideButton" onclick="toggleShowHide()">
+                    <span id="showHideLabel">></span>
+                </div>
+            </div>
+            <!--contains the pcoord component-->
+            <div id="pcoordContainer"></div>
+            <!--readout for the number of results currently selected-->
+            <div id="selectionStats"></div>
+        </div>
+        <!--bar to click-and-drag to resize the chart-->
+        <div id="resizeBar"></div>
+    </div>
+    <!--the lower half of the page contains a component for viewing the selected data-->
+    <!--"tabs" to select which component to use as the view-->
+    <div id="tabContainer">
+        <div class="tab" id="imageSpreadTab" selected="selected" onclick="changeView(viewType.IMAGESPREAD)">Image Spread</div>
+        <div class="tab" id="scatterPlotTab" selected="default" onclick="changeView(viewType.SCATTERPLOT)">Scatter Plot</div>
+        <div class="tab" id="tableTab" selected="default" onclick="changeView(viewType.TABLE)">Table</div>
+    </div>
+    <!--the container for whichever component is selected-->
+    <div id="viewContainer"></div>
+
+    <!--main script-->
+    <script src="js/main.js"></script>
+</body>

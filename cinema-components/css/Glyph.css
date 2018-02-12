@@ -1,0 +1,15 @@
+.CINEMA_COMPONENT.GLYPH .axes path {
+	stroke-opacity: 0.4;
+	stroke: black;
+}
+
+.CINEMA_COMPONENT.GLYPH .axes text {
+	text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+}
+
+.CINEMA_COMPONENT.GLYPH .glyph {
+	fill: rgba(0, 0, 0, 0.034);
+	stroke: rgba(95, 153, 201, 0.747);
+	stroke-width: 5px;
+	stroke-linejoin: round;
+}

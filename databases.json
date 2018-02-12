@@ -1,0 +1,10 @@
+[
+        {
+                "name" : "Example (All)",
+                "directory" : "data/example.cdb",
+                "filter" : "FILE",
+                "logscale" : "anneal temp|anneal time",
+                "smoothLines" : false,
+                "lineOpacity" : 1.0
+        }
+]

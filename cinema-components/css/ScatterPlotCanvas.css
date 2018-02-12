@@ -1,0 +1,55 @@
+.CINEMA_COMPONENT.SCATTER_PLOT.CANVAS .loadingIndicator {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+
+	color: white;
+	font-size: 12px;
+	background: rgba(0, 0, 0, 0.671);
+	border-radius: 5px;
+	padding: 5px;
+}
+
+.CINEMA_COMPONENT.SCATTER_PLOT.CANVAS .pointContainer {
+	background: white;
+	border: 2px solid black;
+	border-width: 2px 2px 0px 0px;
+}
+
+.CINEMA_COMPONENT.SCATTER_PLOT.CANVAS .dimensionSelect.x {
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 10px;
+}
+
+.CINEMA_COMPONENT.SCATTER_PLOT.CANVAS .dimensionSelect.y {
+	top: 50%;
+	transform: translateY(-50%);
+	left: 10px;
+	max-width: 100px;
+}
+
+.CINEMA_COMPONENT.SCATTER_PLOT.CANVAS .axisContainer {
+	pointer-events: none;
+	overflow: visible;
+}
+
+.CINEMA_COMPONENT.SCATTER_PLOT.CANVAS .axis line,
+.CINEMA_COMPONENT.SCATTER_PLOT.CANVAS .axis path {
+	fill: none;
+	stroke: black;
+	stroke-width: 2px;
+	shape-rendering: crispEdges;
+}
+
+.CINEMA_COMPONENT.SCATTER_PLOT.CANVAS .axis text {
+	fill: black;
+}
+
+.CINEMA_COMPONENT.SCATTER_PLOT.CANVAS .warningReadout {
+	bottom: 10px;
+	right: 10px;
+	font-size: 12px;
+	color: darkred;
+}

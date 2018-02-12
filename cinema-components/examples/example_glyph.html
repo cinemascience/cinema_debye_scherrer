@@ -1,0 +1,105 @@
+<html>
+	<head>
+		<title>Cinema Glyph Example (Cars)</title>
+		<meta charset="utf-8">
+		<meta name='author' content="Cameron Tauxe">
+		<meta name='description' content="An example showing basic usage of the GlyphChart component">
+		<link rel='stylesheet' href='css/example_glyph.css'>
+		<!--Import d3-->
+		<script src="lib/d3.min.js"></script>
+		<!--Import library-->
+		<script src = 'lib/CinemaComponents.min.js'></script>
+		<!--Include Component's CSS-->
+		<link rel='stylesheet' href='css/Glyph.css'>
+	</head>
+	<body>
+		<!--The "floating" section of the page is always visible at the top. Only the bottom part of the page visibly scrolls-->
+		<div id="floating">
+			<div id="header">
+				<h1>Cinema Glyph Example (Cars)</h1>
+			</div>
+			<div id="middle">
+				<div id="svgArea">
+					<div id="svgContainer">
+						<svg id="window" viewBox="0 0 1000 1000">
+							<defs>
+								<filter id="shadow">
+									<feOffset result="offOut" in="SourceAlpha" dx="5" dy="5" />
+									<feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" />
+									<feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+								</filter>
+							</defs>
+							<circle id="fill" cx="500" cy="500" r="460" filter="url(#shadow)"></circle>
+							<circle id="stroke" cx="500" cy="500" r="460" filter="url(#shadow)"></circle>
+						</svg>
+						<!--The GlyphChart is built inside of GlyphContainer-->
+						<div id="glyphContainer"></div>
+					</div>
+				</div>
+			</div>
+			<!--The bar to click-and-drag to resize the floating section-->
+			<div id="resizeBar"></div>
+			<div id="infoPane">
+				Click a car below to see its stats.
+			</div>
+		</div>
+		<!--All the buttons for selecting cars go into dataArea-->
+		<div id="dataArea"></div>
+		<script>
+			var chart;
+
+			//Create database
+			var db = new CINEMA_COMPONENTS.Database('data/cars.cdb',doneLoading);
+
+			function doneLoading() {
+				//Create chart from database
+				chart = new CINEMA_COMPONENTS.Glyph(d3.select('#glyphContainer').node(),db,/(^name$)|(^year$)/);
+
+				//Populate data area with results
+				d3.select('#dataArea').selectAll('.resultView')
+				.data(db.data)
+				.enter().append('div')
+					.attr('class','resultView')
+					.attr('mode',function(d,i) {
+						return i == 0 ? 'selected' : 'default'; //first result is already selected
+					})
+					.text(function(d) {return d.name + " ('"+d.year+")";})
+					.on('click',function(d,i) {
+						d3.select('.resultView[mode="selected"]')
+							.attr('mode','default');
+						d3.select(this)
+							.attr('mode','selected');
+						//Set the path in the GlyphChart when clicked
+						chart.setSelected(i);
+					});
+			}
+
+			//Set up dragging on the resize bar
+			var resizeDrag = d3.drag()
+				.on('start', function() {
+					d3.select(this).attr('mode', 'dragging');
+				})
+				.on('drag', function() {
+					var headerRect = d3.select('#header').node().getBoundingClientRect();
+					var newSize = d3.event.y - headerRect.height - 40;
+					d3.select('#svgArea').style('height',newSize+'px')
+						.style('width',newSize+'px');
+					updateMargin();
+					chart.updateSize();
+				})
+				.on('end', function() {
+					d3.select(this).attr('mode', 'default');
+				});
+			d3.select('#resizeBar').call(resizeDrag);
+
+			//Resize the margin-top rule on the data area according to the size of the floating section
+			function updateMargin() {
+				var floatingRect = d3.select('#floating').node().getBoundingClientRect();
+				d3.select('#dataArea')
+					.style('margin-top',floatingRect.height+"px");
+			}
+			updateMargin();
+
+		</script>
+	</body>
+</html>

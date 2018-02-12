@@ -1,0 +1,38 @@
+CINEMA_COMPONENT.PCOORD.CANVAS .brush .extent {
+	fill-opacity: .3;
+	stroke: #fff;
+	shape-rendering: crispEdges;
+}
+
+.CINEMA_COMPONENT.PCOORD.CANVAS .axis line,
+.CINEMA_COMPONENT.PCOORD.CANVAS .axis path {
+	fill: none;
+	stroke: black;
+	shape-rendering: crispEdges;
+}
+
+.CINEMA_COMPONENT.PCOORD.CANVAS .axis text {
+	fill: black;
+	cursor: move;
+}
+
+.CINEMA_COMPONENT.PCOORD.CANVAS .axis path.NaNExtension,
+.CINEMA_COMPONENT.PCOORD.CANVAS .axis .NaNExtensionTick line {
+	stroke: rgb(196, 23, 57);
+}
+.CINEMA_COMPONENT.PCOORD.CANVAS .axis .NaNExtensionTick text{
+	fill: rgb(196, 23, 57);
+}
+
+.CINEMA_COMPONENT.PCOORD.CANVAS .loadingIndicator {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+
+	color: white;
+	font-size: 12px;
+	background: rgba(0, 0, 0, 0.671);
+	border-radius: 5px;
+	padding: 5px;
+}

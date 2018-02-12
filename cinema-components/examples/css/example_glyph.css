@@ -1,0 +1,118 @@
+body {
+	margin: initial;
+	font-family: Ubuntu, Tahoma, Helvetica, sans-serif
+}
+
+#floating {
+	position: fixed;
+	top: 0px;
+	width: 100%;
+}
+
+#middle {
+	margin: initial;
+	background-color: rgb(238, 218, 108);
+	padding: 20px;
+}
+
+#header {
+	box-sizing: border-box;
+	padding: 10px 0px 10px;
+	background: rgb(59, 59, 59);
+	border-bottom: 15px solid rgb(36, 36, 36);
+	box-shadow: 0px 1px 4px black;
+	color: lightgray;
+}
+
+#header h1 {
+	text-align: center;
+	margin: initial;
+}
+
+#svgArea {
+	position: relative;
+	box-sizing: border-box;
+	height: 800px;
+	width: 800px;
+	margin: auto;
+}
+
+#svgContainer #glyphContainer {
+	position: absolute;
+	top: 5%;
+	right: 5%;
+	bottom: 5%;
+	left: 5%;
+}
+
+#svgContainer #window {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#window #fill {
+	fill: rgb(241, 241, 241);
+}
+
+#window #stroke {
+	fill: none;
+	stroke: rgb(58, 58, 58);
+	stroke-width: 25px;
+}
+
+#resizeBar {
+	cursor: ns-resize;
+	height: 8px;
+	background-color: rgb(58, 58, 58);
+}
+#resizeBar:hover {
+	background-color: rgb(121, 121, 121);
+}
+#resizeBar[mode="dragging"],
+#resizeBar[mode="dragging"]:hover {
+	background-color: rgb(221, 221, 221);
+}
+
+#infoPane {
+	box-sizing: border-box;
+	height: 50px;
+	padding: 10px;
+	border-bottom: 5px solid rgb(58, 58, 58);
+	color: rgb(48, 48, 48);
+	font-size: 20px;
+	background: rgb(156, 156, 156);
+}
+
+#dataArea {
+	background: dimgray;
+}
+
+.resultView {
+	box-sizing: border-box;
+	display: inline-block;
+	margin: 5px;
+	padding: 5px;
+	border-bottom: 3px solid rgb(160, 86, 86);
+	color: rgb(243, 243, 243);
+	background: rgb(209, 111, 111);
+	box-shadow: 1px 1px 4px rgb(27, 27, 27);
+	cursor: pointer;
+}
+
+.resultView:hover {
+	background: rgb(241, 142, 142);
+}
+
+.resultView[mode="selected"] {
+	background: rgb(142, 193, 241);
+	border-bottom: 1px solid rgb(86, 116, 160);
+	box-shadow: 1px 1px 2px rgb(27, 27, 27);
+}
+
+.glyphChart .glyph {
+	fill: rgb(169, 209, 233);
+	stroke: rgb(67, 132, 158);
+	stroke-width: 4px;
+	stroke-linejoin: round;
+}

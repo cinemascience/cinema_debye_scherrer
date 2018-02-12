@@ -1,0 +1,55 @@
+.CINEMA_COMPONENT.SCATTER_PLOT.SVG .pointContainer {
+	background: white;
+	border: 2px solid black;
+	border-width: 2px 2px 0px 0px;
+}
+
+.CINEMA_COMPONENT.SCATTER_PLOT.SVG .dimensionSelect.x {
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 10px;
+}
+
+.CINEMA_COMPONENT.SCATTER_PLOT.SVG .dimensionSelect.y {
+	top: 50%;
+	transform: translateY(-50%);
+	left: 10px;
+	max-width: 100px;
+}
+
+.CINEMA_COMPONENT.SCATTER_PLOT.SVG .axisContainer {
+	pointer-events: none;
+	overflow: visible;
+}
+
+.CINEMA_COMPONENT.SCATTER_PLOT.SVG .axis line,
+.CINEMA_COMPONENT.SCATTER_PLOT.SVG .axis path {
+	fill: none;
+	stroke: black;
+	stroke-width: 2px;
+	shape-rendering: crispEdges;
+}
+
+.CINEMA_COMPONENT.SCATTER_PLOT.SVG .axis text {
+	fill: black;
+}
+
+.CINEMA_COMPONENT.SCATTER_PLOT.SVG .selectedPoints circle {
+	fill: rgba(82, 137, 163, 0.521);
+	stroke: rgb(69, 121, 153);
+	stroke-width: 2px;
+}
+
+.CINEMA_COMPONENT.SCATTER_PLOT.SVG .highlightedPoints circle {
+	pointer-events: none;
+	fill: rgb(252, 127, 127);
+	stroke: rgb(153, 80, 80);
+	stroke-width: 3px;
+}
+
+.CINEMA_COMPONENT.SCATTER_PLOT .warningReadout {
+	bottom: 10px;
+	right: 10px;
+	font-size: 12px;
+	color: darkred;
+}

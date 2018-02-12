@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--
+A demonstration of some basic usage of the ParallelCoordinatesChart component
+
+Copyright 2017 Los Alamos National Laboratory 
+
+Redistribution and use in source and binary forms, with or without 
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this 
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, 
+   this list of conditions and the following disclaimer in the documentation 
+   and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors 
+   may be used to endorse or promote products derived from this software 
+   without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE 
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR 
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, 
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+This is based on the example of the Nutrient Explorer, copyright 2012, Kai
+Chang, and is licensed appropriately.
+-->
+
+<html lang='en'>
+<head>
+	<title>Parallel Coordinates Example (Cars)</title>
+	<meta charset="utf-8">
+	<meta name='author' content="Cameron Tauxe">
+	<link rel='stylesheet' href='css/example_pcoord.css'>
+	<!--Import d3-->
+	<script src="lib/d3.min.js"></script>
+	<!--Import library-->
+	<script src = 'lib/CinemaComponents.min.js'></script>
+	<!--Include Component's CSS-->
+	<link rel='stylesheet' href='css/PcoordSVG.css'>
+</head>
+<body>
+	<div id="header">
+		<h1>Parallel Coordinates Example (Cars)</h1>
+	</div>
+	<!--The component will be placed into componentContainer.
+		It will try to match its container's size exactly
+		so if you want padding and margins and such,
+		it is advisable to wrap the container (inside componentArea in this case)-->
+	<div id="componentArea">
+		<div id="componentContainer"></div>
+	</div>
+	<!--Resize bar is click-and-dragged to resize the componentArea-->
+	<div id="resizeBar"></div>
+	<div id="resultsArea">
+		<!--Show a sample of the currently selected cars-->
+		<div id="selection">
+			<div>Selected Cars:</div>
+			<div id="selectionReadout"></div>
+			<div id="selectionMore"></div>
+		</div>
+		<!--Show the car that's currently being moused over in the chart-->
+		<div id ="mousedOver">
+			<div>Moused Over Car:
+			<div id="mouseOverReadout"></div>
+		</div>
+	</div>
+
+	<script>
+		var chart;
+
+		//Create Database
+		var db = new CINEMA_COMPONENTS.Database('data/cars.cdb',doneLoading);
+		var loaded = false;
+
+		/**
+		 * Loading callback function.
+		 * Called when the database is done loading.
+		 */
+		function doneLoading() {
+			loaded = true;
+
+			//Create chart from database
+			// /^name$/ is a regex filtering out the name dimension of the data so that it doesn't show on the chart
+			chart = new CINEMA_COMPONENTS.PcoordSVG(d3.select('#componentContainer').node(),db,/^name$/);
+
+			//Setup Event listeners on chart
+
+			/**
+			 * Respond to selection change event
+			 * This is called whenever the selection in the chart changes
+			 * and sends an array of the indices of the selected results
+			 * as an argument.
+			 * 
+			 * This particular example takes a sample of the selected cars
+			 * and adds a viewport for each one to the selectionReadout area.
+			 */
+			chart.dispatch.on("selectionchange", function(query) {
+				var sampleSize = 25;
+				var sample = (query.length > sampleSize ? getSample(query,sampleSize) : query);
+				d3.select('#selectionReadout').html('').selectAll('.resultView')
+					.data(sample)
+					.enter()
+						.append('div').attr('class','resultView')
+						.each(function(d){createResultViewContent(this, d);})
+				d3.select('#selectionMore')
+					.text(query.length > 25 ? ('...and '+(query.length-sampleSize)+' more.') : '');
+			});
+
+			/**
+			 * Respond to mouseover event
+			 * This is called whenever a result in the chart is moused-over.
+			 * It passes the index of the result as the first argument
+			 * and the mouse event that triggered it as the second argument (if you need it).
+			 * when a result is moused-off, this is called again with the index being null
+			 * 
+			 * This particular example creates a viewport for the result and adds it
+			 * to the mouseOverReadout area.
+			 * Also sets the highlighted path in the chart
+			 */
+			chart.dispatch.on("mouseover", function(i) {
+				if (i != null) {
+					d3.select('#mouseOverReadout').html('')
+						.append('div').attr('class', 'resultView')
+						.each(function(){createResultViewContent(this, i);});
+					chart.setHighlightedPaths([i]);
+				}
+				else {
+					d3.select('#mouseOverReadout').html('')
+						.append('div').attr('class','resultView')
+						.text('None');
+					chart.setHighlightedPaths([]);
+				}
+			});
+
+			//Uncomment these lines to make the lines on the chart straight
+			//chart.smoothPaths = false;
+			//chart.redrawPaths();
+
+			//Trigger updates
+			//This will put the data readouts into their initial state
+			chart.dispatch.call('mouseover',chart,null);
+			chart.dispatch.call("selectionchange",chart, chart.selection);
+
+		} //end doneLoading()
+
+		/**
+		 * It is important to call updateSize() whenever the size of the
+		 * chart's container may change. If you dont, the chart will still
+		 * fit the area, but it will become distorted
+		 */
+		window.onresize = function(){
+			if (loaded)
+				chart.updateSize();
+		};
+
+		//Set up dragging on the resize bar
+		var resizeDrag = d3.drag()
+			.on('start', function() {
+				d3.select(this).attr('mode', 'dragging');
+			})
+			.on('drag', function() {
+				var headerRect = d3.select('#header').node().getBoundingClientRect();
+				d3.select('#componentArea').style('height',(d3.event.y - headerRect.height)+'px');
+				chart.updateSize();
+			})
+			.on('end', function() {
+				d3.select(this).attr('mode', 'default');
+			});
+		d3.select('#resizeBar').call(resizeDrag);
+
+		/**
+		 * Creates a viewport inside the given parent for the result represented
+		 * by the given index (d).
+		 * This isn't a necessary function of the component, but it can be convenient
+		 * if you want to display a lot of results.
+		 * 
+		 * In this particular example, a viewport simply contains text stating the cars
+		 * name and year. Each viewport will also highlight its result in the chart when
+		 * moused-over.
+		 * 
+		 * Note that you can access data by access the chart's results and giving it the index.
+		 * And that, even though "name" was filtered out of the chart, it can still be accessed.
+		 */
+		function createResultViewContent(parent, d) {
+			d3.select(parent)
+				.text(function() {
+					return (db.data[d].name +
+							' ('+db.data[d].year+'\')');
+				})
+				.on('mouseenter', function() {
+					//set the highlight in the chart by giving it the index of the result
+					chart.setHighlightedPaths([d]);
+				})
+				.on('mouseleave', function() {
+					//remove the highlight in the chart by setting it to an empty array
+					chart.setHighlightedPaths([]);
+				});
+		}
+
+		/*
+		* Get a random sample from an array
+		* https://stackoverflow.com/a/37771403
+		*/
+		function getSample(arr, count) {
+			// Make a copy of the array
+			var tmp = arr.slice(arr);
+			var result = [];
+			
+			for (var i = 0; i < count; i++) {
+				var index = Math.floor(Math.random() * tmp.length);
+				var removed = tmp.splice(index, 1);
+				// Since we are only removing one element
+				result.push(removed[0]);
+			}
+			return result;
+		}
+	</script>
+</body>

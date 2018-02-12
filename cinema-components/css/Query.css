@@ -1,0 +1,40 @@
+.CINEMA_COMPONENT.QUERY {
+	font-size: 14px;
+	color: white;
+}
+
+.CINEMA_COMPONENT.QUERY .thresholdInput {
+	width: 50px;
+}
+
+.CINEMA_COMPONENT.QUERY .thresholdLabel,
+.CINEMA_COMPONENT.QUERY .readout {
+	margin: 0px 10px;
+}
+
+.CINEMA_COMPONENT.QUERY .inputRow {
+	height: 25px;
+	position: relative;
+	font-size: 14px;
+	margin: 5px;
+	border-bottom: 1px solid dimgray;
+}
+.CINEMA_COMPONENT.QUERY .inputRow .label {
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.CINEMA_COMPONENT.QUERY .inputRow input {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.CINEMA_COMPONENT.QUERY .inputRow input[type="range"] {
+	right: 10px;
+	width: 150px;
+}
+.CINEMA_COMPONENT.QUERY .inputRow input[type="checkbox"] {
+	right: 180px;
+	transform: translateY(-100%);
+}

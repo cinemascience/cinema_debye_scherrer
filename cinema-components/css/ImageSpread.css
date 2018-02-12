@@ -1,0 +1,143 @@
+.CINEMA_COMPONENT.IMAGE_SPREAD .header {
+	background: #e2e2e2;
+	padding: 5px 20px;
+	border-bottom: 3px solid dimgray;
+	box-sizing: border-box;
+}
+
+.CINEMA_COMPONENT.IMAGE_SPREAD .controlPanel {
+	margin: 0px 10px;
+	display: inline-table;
+	color: black;
+	font-size: 14px;
+}
+
+.CINEMA_COMPONENT.IMAGE_SPREAD .controlPanel.imageSize {
+	float: right;
+}
+
+.CINEMA_COMPONENT.IMAGE_SPREAD .dataDisplay {
+	display: inline-block;
+	margin: 5px;
+	padding: 2px;
+	border: 4px solid black;
+	background-color: lightgray;
+	box-shadow: 1px 1px 2px black;
+}
+.CINEMA_COMPONENT.IMAGE_SPREAD .dataDisplay:hover {
+	box-shadow: 2px 4px 8px black;
+}
+
+.CINEMA_COMPONENT.IMAGE_SPREAD .fileDisplay {
+	display: inline-block;
+}
+
+.CINEMA_COMPONENT.IMAGE_SPREAD .fileDisplay .display {
+	margin: 2px;
+}
+
+.CINEMA_COMPONENT.IMAGE_SPREAD .fileDisplay .display.image {
+	border: 2px solid black;
+	line-height: 0;
+	cursor: pointer;
+}
+
+.CINEMA_COMPONENT.IMAGE_SPREAD .fileDisplay .display.image:hover {
+	border: 2px solid rgb(23, 165, 221);
+	box-shadow: 1px 1px 2px black;
+}
+
+.CINEMA_COMPONENT.IMAGE_SPREAD .fileDisplay .displayLabel {
+	font-size: 12px;
+	text-align: center;
+}
+
+.CINEMA_COMPONENT.IMAGE_SPREAD .fileDisplay .display.text {
+	text-align: center;
+	padding: 5px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.CINEMA_COMPONENT.IMAGE_SPREAD .fileDisplay .display.image img {
+	line-height: 0;
+}
+
+.modalBackground {
+	position: fixed;
+	z-index: 3;
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0,0,0,0.9);
+}
+
+.modalImg {
+	margin: auto;
+	display: block;
+}
+
+.CINEMA_COMPONENT.IMAGE_SPREAD .pageNavWrapper {
+	padding: initial;
+	z-index: 2;
+	position: fixed;
+	bottom: 30px;
+	left: 50%;
+	width: auto;
+	height: auto;
+	transform: translate(-50%,-50%);
+	border: 2px solid lightgray;
+	border-radius: 3px;
+	box-shadow: 3px 3px 10px dimgray;
+}
+
+.CINEMA_COMPONENT.IMAGE_SPREAD .pageNav {
+	margin: initial;
+	padding: initial;
+}
+
+.CINEMA_COMPONENT.IMAGE_SPREAD .pageButton {
+	cursor: pointer;
+	color: white;
+	font-size: 14px;
+	display: inline-flex;
+	background-color: rgba(25,25,25,0.85);
+	padding: 10px;
+}
+.CINEMA_COMPONENT.IMAGE_SPREAD .pageButton:hover {
+	background-color: rgba(50,50,50,0.85);
+}
+.CINEMA_COMPONENT.IMAGE_SPREAD .pageButton[mode='selected'],
+.CINEMA_COMPONENT.IMAGE_SPREAD .pageButton[mode='selected']:hover {
+	color: white;
+	background-color: rgba(100,100,100,0.85);
+}
+
+.CINEMA_COMPONENT.IMAGE_SPREAD .pageReadout {
+	background-color: rgba(25,25,25,0.85);
+	color: white;
+	text-align: center;
+	font-size: 12px;
+	padding: 3px;
+}
+
+.CINEMA_COMPONENT.IMAGE_SPREAD .noFileWarning {
+	padding: 10px;
+	width: 35%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	text-align: center;
+	background: rgb(201, 201, 201);
+	border: solid #333 5px;
+	border-radius: 10px;
+	box-shadow: 2px 2px 5px dimgray;
+
+	color: black;
+	font-weight: bold;
+	font-size: 24px;
+
+}

@@ -1,0 +1,61 @@
+.CINEMA_COMPONENT.PCOORD.SVG {
+	font: 10px sans-serif;
+	background-color: whitesmoke;
+}
+
+/*.CINEMA_COMPONENT.PCOORD.SVG .pathContainer,
+.CINEMA_COMPONENT.PCOORD.SVG .pathContainer svg,
+.CINEMA_COMPONENT.PCOORD.SVG .pathContainer svg .selectedPaths {
+	pointer-events: none;
+}*/
+
+.CINEMA_COMPONENT.PCOORD.SVG .selectedPaths path {
+	fill: none;
+	stroke-width: 2px;
+	stroke: lightgray;
+	stroke-opacity: 0.3;
+	vector-effect: non-scaling-stroke;
+}
+
+.CINEMA_COMPONENT.PCOORD.SVG .highlightedPaths path {
+	pointer-events: none;
+	fill: none;
+	stroke-width: 4px;
+	stroke: lightskyblue;
+	stroke-opacity: 1;
+}
+
+.CINEMA_COMPONENT.PCOORD.SVG .overlayPaths path {
+	fill: none;
+	pointer-events: none;
+	stroke-dasharray: 20, 10;
+	stroke: crimson;
+	stroke-width: 3px;
+	stroke-opacity: 1;
+}
+
+.CINEMA_COMPONENT.PCOORD.SVG .brush .extent {
+	fill-opacity: .3;
+	stroke: #fff;
+	shape-rendering: crispEdges;
+}
+
+.CINEMA_COMPONENT.PCOORD.SVG .axis line,
+.CINEMA_COMPONENT.PCOORD.SVG .axis path {
+	fill: none;
+	stroke: black;
+	shape-rendering: crispEdges;
+}
+
+.CINEMA_COMPONENT.PCOORD.SVG .axis text {
+	fill: black;
+	cursor: move;
+}
+
+.CINEMA_COMPONENT.PCOORD.SVG .axis path.NaNExtension,
+.CINEMA_COMPONENT.PCOORD.SVG .axis .NaNExtensionTick line {
+	stroke: rgb(196, 23, 57);
+}
+.CINEMA_COMPONENT.PCOORD.SVG .axis .NaNExtensionTick text{
+	fill: rgb(196, 23, 57);
+}
