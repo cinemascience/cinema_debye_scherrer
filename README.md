@@ -8,10 +8,12 @@ Cinema:Debye-Scherrer is a web-based data exploration tool built on from the Cin
 # Instructions
 
 In this section, we provide instructions for common operations.
+There is an example dataset included in this repository at ``data/example.cdb`` that is used throughout these instructions.
 
 ## Loading the viewer
 
-You can open then open the file ``main.html`` with your preferred browser.
+You can open the file ``main.html`` with your preferred browser.
+This is will load Cinema:Debye-Scherrer in your browser to interact with your datasets.
 
 Some browsers may have advanced security settings enabled which prevents reading data files from your computer.
 If you encounter problems viewing your datasets, then you can run a simple HTTP server to serve your datasets.
