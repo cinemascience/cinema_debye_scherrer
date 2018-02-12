@@ -27,9 +27,11 @@ Then, you can navigate to ``main.html`` from the URL ``http://localhost:8000/mai
 ## Input data format
 
 The input data format to Cinema:Debye-Scherrer is a called a Cinema database.
-We use the Cinema databse specification D which is described in detail at https://github.com/lanl/cinema/blob/master/specs/dietrich/01/cinema_specD_v011.pdf.
-A brief summary of the specification is a directory with a ``data.csv`` file.
-This ``data.csv`` file is a comma-delimited ASCII file with a header, and each row corresponds to a data point.
+We use the Cinema database specification D which is described in detail at https://github.com/lanl/cinema/blob/master/specs/dietrich/01/cinema_specD_v011.pdf.
+
+Here, we provide a brief summary of the specification.
+A Cinema database is a directory with a ``data.csv`` file.
+This ``data.csv`` file is a comma-delimited ASCII file with a header (ie. first row contains names for each column), and each row corresponds to a data point.
 The final set of columns may contain relative paths to images, and these columns must be named ``FILE``, ``FILE2``, etc.
 
 We include a Cinema database as an example in ``data/example.cdb`` of this repository with the following directory structure
@@ -47,10 +49,13 @@ data/
       UP_800C-B2.png
 ```
 
+You can view ``data/examples.cdb/data.csv`` as an example of the comma-delimited file that contains the data points.
+
 ## Adding a new dataset to the viewer
 
 Paths to datasets and information how to view each dataset is stored in the ``databases.json`` in the top-level of this repository.
 To add a new Cinema database to be visualized with Cinema:Debye-Scherrer you must add the path to the Cinema database to ``databases.json``.
+Open the file ``databases.json`` in this repository to see an example.
 
 Below, we describe the attributes that describe the attributes in ``databases.json`` that should be added for a new dataset.
 
@@ -78,6 +83,8 @@ Once you have loaded the viewer in a browser, then you can change which columns 
 To change which columns are displayed or change a column to a logarithmic scale at the top of the viewer select the "Axis Panel" option from the "Select Panel" drop-down menu.
 On the left-hand side of the parallel coordinates plot, all the columns in the file should be displayed with checkboxes to hide or convert the axes to a logarithmic scale.
 Select which columns to modify, then click the button labeled "Modify Columns" to see the changes.
+
+You can click the "<" arrow between the options and parallel coordinates plots to collapse this panel.
 
 ## Change opacity and smooth lines in web browser
 
