@@ -1,20 +1,19 @@
 # Cinema:Debye-Scherrer
 
-Cinema:Debye-Scherrer is an interactive visualization tool for exploring datasets.
-It has been applied to multi-dataset Rietveld analyses for the validation of the analyses, scientific discovery, and experimental design.
-
-Cinema:Debye-Scherrer is a web-based data exploration tool built on from the Cinema Components (https://github.com/lanl/cinema_components) and D3 (https://d3js.org/) JavaScript libraries.
+Cinema:Debye-Scherrer is an interactive visualization tool for exploring datasets, and it has been applied to multi-dataset Rietveld analyses for the validation of the analyses, scientific discovery, and experimental design.
+This is a web-based tool that be used in a web browser, and it has been built from the Cinema Components (https://github.com/lanl/cinema_components) and D3 (https://d3js.org/) JavaScript libraries.
 The different visualizations (eg. scatter plot) in Cinema:Debye-Scherrer are interactive and linked with each other.
 This means that hovering or clicking on paths, rows, or points in one visualization shows th result in the other visualizations.
+An interactive and linked visualization tool provides a quick way to explore datasets.
 
 An overview of Cinema:Debye-Scherrer in a web browser is shown below.
 Cinema:Debye-Scherrer displays datasets in a parallel coordinates plot at the top of the page.
 To the left of the parallel coordinates plot is a panel for changing display options; shown below is the panel for hiding and convert axes to a logarithmic scale.
+By clicking the "<" arrow you can collapse this panel with the display options.
 Below there are tabs to switch between an image spread, scatter plot, and tabular view; below the image spread view is shown.
 At the top of the page, there are options to select which database to load ("Select Database"), select which display options to appear in panel ("Select Panel"), save ("Download Settings"), or reset to original configuration ("Reset").
-Hovering over a point highlights it in all visualizations; this is the image and path highlighted in blue below.
-Hovering over a point displays its values in the lower right window as well.
-Paths can be permanently highlighted by clicking; permanently highlighted paths are shown as red in the parallel coordinates plot shown below.
+Hovering over a point highlights it in all visualizations and a panel in the lower right displays that point's values as well; this currently highlighted path is shown in blue below.
+Paths can be permanently highlighted by clicking; permanently highlighted paths are shown as red below.
 
 ![Overview](docs/images/overview.png)
 
