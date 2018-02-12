@@ -1,10 +1,17 @@
 [
         {
-                "name" : "Example (All)",
+                "name" : "Example (Test Highlight)",
                 "directory" : "data/example.cdb",
                 "filter" : "FILE",
                 "logscale" : "anneal temp|anneal time",
-                "smoothLines" : false,
+                "picked" : [1, 3],
+                "smoothLines" : true,
+                "lineOpacity" : 1.0
+        },
+        {
+                "name" : "Example (Display All)",
+                "directory" : "data/example.cdb",
+                "smoothLines" : true,
                 "lineOpacity" : 1.0
         }
 ]
