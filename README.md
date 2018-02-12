@@ -4,8 +4,15 @@ Cinema:Debye-Scherrer is an interactive visualization tool for exploring dataset
 It has been applied to multi-dataset Rietveld analyses for the validation, scientific discovery, and experimental design.
 
 Cinema:Debye-Scherrer is a web-based data exploration tool built on from the Cinema Components (https://github.com/lanl/cinema_components) and D3 (https://d3js.org/) JavaScript libraries.
+The different visualizations (eg. scatter plot) in Cinema:Debye-Scherrer are interactive and linked with each other.
+This means that hovering or clicking on paths, rows, or points in one visualization shows th result in the other visualizations.
 
-An overview of Cinema:Debye-Scherrer in a web browser is shown below
+An overview of Cinema:Debye-Scherrer in a web browser is shown below.
+Cinema:Debye-Scherrer displays datasets in a parallel coordinates plot at the top of the page.
+To the left of the parallel coordinates plot is a panel for changing display options; shown below is the panel for hiding and convert axes to a logarithmic scale.
+Below there are tabs to switch between an image spread, scatter plot, and tabular view.
+At the top of the page, there are options to select which database to load ("Select Database"), select which display options to appear in panel ("Select Panel"), save ("Download Settings"), or reset to original configuration ("Reset").
+
 ![Overview](docs/images/overview.png)
 
 # Instructions
