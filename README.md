@@ -70,6 +70,25 @@ The following are a description of the example entries
   * ``Example (Test Expression)``: An example that shows how to initially only display columns that contain ``CHISQ`` or ``PF6``.
   * ``Example (Display All)``: Simple example that shows the entire dataset.
 
+## Hide column or change to logarithmic scale
+
+Once you have loaded the viewer in a browser, then you can change which columns are displayed, the axes scales, and other visualization options in the viewer.
+To change which columns are displayed or change a column to a logarithmic scale at the top of the viewer select the "Axis Panel" option from the "Select Panel" drop-down menu.
+On the left-hand side of the parallel coordinates plot, all the columns in the file should be displayed with checkboxes to hide or convert the axes to a logarithmic scale.
+Select which columns to modify, then click the button labeled "Modify Columns" to see the changes.
+
+## Change opacity and smooth lines
+
+Under the "Select Panel" drop-down menu select the "Display Panel".
+This should bring up options to the left of the parallel coordinates plot to smooth the lines (a checkbox) or change the transparency of the paths (a slider).
+
+## Saving the state of the viewer
+
+If you have used the viewer and select or deselected entries in the ``data.csv`` file, or hide and change the scale of axes, then you can save your changes.
+At the top of the viewer there is a section called "Download Settings" with a text field and button.
+When you click the button with "Download" on it, then you will download a JSON file that can replace the existing ``databases.json`` file to load your saved state.
+The text field renames the downloaded file; by default, it is set to ``databases.json``.
+
 # Citation
 
 We have submitted an article that details Cinema:Debye-Scherrer to a peer-reviewed journal, and this citation will be updated upon acceptance to a journal.
