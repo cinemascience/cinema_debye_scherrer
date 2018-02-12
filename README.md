@@ -61,12 +61,16 @@ We include an example how to visualize the example dataset
 ]
 ```
 
-Each dataset has several attributes.
-Required attributes are
+Each dataset has several attributes that describe where the Cinema database is located and how to display the dataset.
+The required attributes for each entry in ``databases.json`` are
   * ``name``: A short description of the dataset.
   * ``directory``: A relative path to the Cinema database.
-
-Optional attributes include ``filter`` which is a regular expression for columns to exclude in the visualization, ``logscale`` which is a regular expression for columns to display on a logarithmic axis, ``smoothLines`` is ``true`` or ``false`` to use curved paths on the parallel coordinates plot, ``lineOpacity`` is an integer from 0 to 1 that 
+Optional attributes include
+  * ``filter`` : A regular expression for columns to exclude in the visualization.
+  * ``logscale``: A regular expression for columns to display on a logarithmic axis.
+  * ``selected`` : A list of integers that corresponds to the index in the ``data.csv`` of data points to automatically highlight.
+  * ``smoothLines``: A boolean set to ``true`` to use curved paths on the parallel coordinates plot or ``false`` to use straight lines.
+  * ``lineOpacity``: An integer from 0 to 1 that sets the transparency of the paths on the parallel coordiantes plot.
 
 # Citation
 
