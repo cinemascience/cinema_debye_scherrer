@@ -7,7 +7,7 @@ Cinema:Debye-Scherrer is a web-based data exploration tool built on from the Cin
 
 # Instructions
 
-In this section, we provide a instructions for common operations.
+In this section, we provide instructions for common operations.
 
 ## Loading the viewer
 
@@ -29,7 +29,8 @@ We use the Cinema databse specification D which is described in detail at https:
 A brief summary of the specification is a directory with a ``data.csv`` file.
 This ``data.csv`` file is a comma-delimited ASCII file with a header, and each row corresponds to a data point.
 The final set of columns may contain relative paths to images, and these columns must be named ``FILE``, ``FILE2``, etc.
-We include a Cinema database as an example in ``data/example.cdb`` with the following directory structure
+
+We include a Cinema database as an example in ``data/example.cdb`` of this repository with the following directory structure
 ```
 data/
   examples.cdb/
@@ -47,28 +48,19 @@ data/
 ## Adding a new dataset to the viewer
 
 Paths to datasets and information how to view each dataset is stored in the ``databases.json`` in the top-level of this repository.
-We include an example how to visualize the example dataset
-```
-[
-        {
-                "name" : "Example (All)",
-                "directory" : "data/example.cdb",
-                "filter" : "FILE",
-                "logscale" : "anneal temp|anneal time",
-                "smoothLines" : false,
-                "lineOpacity" : 1.0
-        }
-]
-```
+We include a few examples inside ``databases.json`` that visualize the example dataset in several configurations.
+To add a new Cinema database to be visualized with Cinema:Debye-Scherrer you must add the path to the Cinema database to ``databases.json``.
 
-Each dataset has several attributes that describe where the Cinema database is located and how to display the dataset.
+Below, we describe the attributes that describe the attributes in ``databases.json`` that should be added for a new dataset.
+
 The required attributes for each entry in ``databases.json`` are
   * ``name``: A short description of the dataset.
   * ``directory``: A relative path to the Cinema database.
+
 Optional attributes include
   * ``filter`` : A regular expression for columns to exclude in the visualization.
   * ``logscale``: A regular expression for columns to display on a logarithmic axis.
-  * ``selected`` : A list of integers that corresponds to the index in the ``data.csv`` of data points to automatically highlight.
+  * ``picked`` : A list of integers that corresponds to the index in the ``data.csv`` of data points to automatically highlight.
   * ``smoothLines``: A boolean set to ``true`` to use curved paths on the parallel coordinates plot or ``false`` to use straight lines.
   * ``lineOpacity``: An integer from 0 to 1 that sets the transparency of the paths on the parallel coordiantes plot.
 
