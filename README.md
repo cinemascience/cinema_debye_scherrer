@@ -28,8 +28,10 @@ Then, you can navigate to ``main.html`` from the URL ``http://localhost:8000/mai
 
 The input data format to Cinema:Debye-Scherrer is a called a Cinema database.
 We use the Cinema database specification D which is described in detail at https://github.com/lanl/cinema/blob/master/specs/dietrich/01/cinema_specD_v011.pdf.
-A brief summary of the specification is a directory with a ``data.csv`` file.
-This ``data.csv`` file is a comma-delimited ASCII file with a header, and each row corresponds to a data point.
+
+Here, we provide a brief summary of the specification.
+A Cinema database is a directory with a ``data.csv`` file.
+This ``data.csv`` file is a comma-delimited ASCII file with a header (ie. first row contains names for each column), and each row corresponds to a data point.
 The final set of columns may contain relative paths to images, and these columns must be named ``FILE``, ``FILE2``, etc.
 
 We include a Cinema database as an example in ``data/example.cdb`` of this repository with the following directory structure
@@ -46,6 +48,8 @@ data/
       UP_600C-B2.png
       UP_800C-B2.png
 ```
+
+You can view ``data/examples.cdb/data.csv`` as an example of the comma-delimited file that contains the data points.
 
 ## Adding a new dataset to the viewer
 
