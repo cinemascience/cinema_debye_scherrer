@@ -247,11 +247,11 @@
          * This includes: (, ), [, ], \, ^, $, ., ?, *, and +.
          */
         CINEMA_COMPONENTS.Axial.prototype.formatRegExp = function(param) {
-            return param.replace(/\(/g, "\\\(")
+            return param.replace(/\\/g, "\\\\")
+                        .replace(/\(/g, "\\\(")
                         .replace(/\)/g, "\\\)")
                         .replace(/\[/g, "\\\[")
                         .replace(/\]/g, "\\\]")
-                        .replace(/\\/g, "\\\\")
                         .replace(/\^/g, "\\\^")
                         .replace(/\$/g, "\\\$")
                         .replace(/\./g, "\\\.")
