@@ -10,7 +10,7 @@
                 "name" : "Example (Test Filter and Logscale)",
                 "directory" : "data/example.cdb",
                 "filter" : "BaBrCl|File|FILE",
-                "logscale" : "Temp",
+                "logscale" : "Temp \\[C\\]",
                 "smoothLines" : true,
                 "lineOpacity" : 1.0
         },
