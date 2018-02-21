@@ -109,9 +109,8 @@ The following are a description of the example entries
 ## Parameter names with special characters
 
 Cinema:Debye-Scherrer uses regular expressions to sort parameters.
-There are special characters for regular expressions which may disrupt how Cinema:Debye-Scherrer operates.
-The special characters we have allow include: ``[``, ``]``, ``(``, ``)``, ``\``, ``^``, ``$``, ``.``, ``?``, ``*``, and ``+``.
-If you are having problems with hiding or alter particular axes, then it may be due to the parameter's name.
+We have taken precautions to safeguard against special characters for regular expressions which may disrupt how Cinema:Debye-Scherrer operates.
+The special characters we allow in parameter names include: ``[``, ``]``, ``(``, ``)``, ``\``, ``^``, ``$``, ``.``, ``?``, ``*``, and ``+``.
 
 If you wish to use a special character in the ``databases.json`` JSON file, then you must include a ``\\`` before the special character.
 An example is shown in ``databases.json`` already under ``Exmaple (Test Filter and Logscale)``.
