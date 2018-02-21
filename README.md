@@ -106,6 +106,13 @@ The following are a description of the example entries
   * ``Example (Test Expression)``: An example that shows how to initially only display columns that contain ``CHISQ`` or ``PF6``.
   * ``Example (Display All)``: Simple example that shows the entire dataset.
 
+## Parameter names with special characters
+
+Cinema:Debye-Scherrer uses regular expressions to sort parameters.
+There are special characters for regular expressions which may disrupt how Cinema:Debye-Scherrer operates.
+The special characters we have allow include: ``[``, ``]``, ``(``, ``)``, ``\``, ``^``, ``$``, ``.``, ``?``, ``*``, and ``+``.
+If you are having problems with hiding or alter particular axes, then it may be due to the parameter's name.
+
 ## Hide column or change to logarithmic scale in web browser
 
 Once you have loaded the viewer in a browser, then you can change which columns are displayed, the axes scales, and other visualization options in the viewer.

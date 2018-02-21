@@ -244,14 +244,20 @@
 
         /**
          * For special characters in regular expression adds blackslashes.
-         * This includes: (, ), [, and ].
-         * This does not include: \, ^, $, ., ?, *, and +.
+         * This includes: (, ), [, ], \, ^, $, ., ?, *, and +.
          */
         CINEMA_COMPONENTS.Axial.prototype.formatRegExp = function(param) {
             return param.replace(/\(/g, "\\\(")
                         .replace(/\)/g, "\\\)")
                         .replace(/\[/g, "\\\[")
-                        .replace(/\]/g, "\\\]");
+                        .replace(/\]/g, "\\\]")
+                        .replace(/\\/g, "\\\\")
+                        .replace(/\^/g, "\\\^")
+                        .replace(/\$/g, "\\\$")
+                        .replace(/\./g, "\\\.")
+                        .replace(/\?/g, "\\\?")
+                        .replace(/\*/g, "\\\*")
+                        .replace(/\+/g, "\\\+");
         }
 
 })();
