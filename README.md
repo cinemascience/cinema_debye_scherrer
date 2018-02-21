@@ -106,6 +106,16 @@ The following are a description of the example entries
   * ``Example (Test Expression)``: An example that shows how to initially only display columns that contain ``CHISQ`` or ``PF6``.
   * ``Example (Display All)``: Simple example that shows the entire dataset.
 
+## Parameter names with special characters
+
+Cinema:Debye-Scherrer uses regular expressions to sort parameters.
+We have taken precautions to safeguard against special characters for regular expressions which may disrupt how Cinema:Debye-Scherrer operates.
+The special characters we allow in parameter names include: ``[``, ``]``, ``(``, ``)``, ``\``, ``^``, ``$``, ``.``, ``?``, ``*``, and ``+``.
+
+If you wish to use a special character in the ``databases.json`` JSON file, then you must include a ``\\`` before the special character.
+An example is shown in ``databases.json`` already under ``Exmaple (Test Filter and Logscale)``.
+You see there that the ``logscale`` is set to ``"Temp\\[C\\]"`` so that the ``[`` and ``]`` special characters are properly parsed in the JSON file.
+
 ## Hide column or change to logarithmic scale in web browser
 
 Once you have loaded the viewer in a browser, then you can change which columns are displayed, the axes scales, and other visualization options in the viewer.

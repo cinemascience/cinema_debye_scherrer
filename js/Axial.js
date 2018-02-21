@@ -218,10 +218,11 @@
             d3.selectAll('.customControlRow').nodes().forEach(function(d) {
 
                 // get name
-                var param = d.textContent;
+                var param = self.formatRegExp(d.textContent);
 
                 // determine if hide checked
                 if (d.children[1].children[0].checked) {
+
                     filterDimensions.push(param);
                 }
                 // determine if logscale checked
@@ -239,6 +240,24 @@
             currentDbInfo.logscale = logscaleDimensions.length > 0 ? logscaleDimensions.join("|") : "^$";
             load();
 
+        }
+
+        /**
+         * For special characters in regular expression adds blackslashes.
+         * This includes: (, ), [, ], \, ^, $, ., ?, *, and +.
+         */
+        CINEMA_COMPONENTS.Axial.prototype.formatRegExp = function(param) {
+            return param.replace(/\\/g, "\\\\")
+                        .replace(/\(/g, "\\\(")
+                        .replace(/\)/g, "\\\)")
+                        .replace(/\[/g, "\\\[")
+                        .replace(/\]/g, "\\\]")
+                        .replace(/\^/g, "\\\^")
+                        .replace(/\$/g, "\\\$")
+                        .replace(/\./g, "\\\.")
+                        .replace(/\?/g, "\\\?")
+                        .replace(/\*/g, "\\\*")
+                        .replace(/\+/g, "\\\+");
         }
 
 })();
