@@ -116,6 +116,10 @@ If you wish to use a special character in the ``databases.json`` JSON file, then
 An example is shown in ``databases.json`` already under ``Exmaple (Test Filter and Logscale)``.
 You see there that the ``logscale`` is set to ``"Temp\\[C\\]"`` so that the ``[`` and ``]`` special characters are properly parsed in the JSON file.
 
+If you wish to use a special character in the ``databases.json`` JSON file, then you must include a ``\\`` before the special character.
+An example is shown in ``databases.json`` already under ``Exmaple (Test Filter and Logscale)``.
+You see there that the ``logscale`` is set to ``"Temp\\[C\\]"`` so that the ``[`` and ``]`` special characters are properly parsed in the JSON file.
+
 ## Hide column or change to logarithmic scale in web browser
 
 Once you have loaded the viewer in a browser, then you can change which columns are displayed, the axes scales, and other visualization options in the viewer.
