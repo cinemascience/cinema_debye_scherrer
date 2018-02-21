@@ -59,14 +59,26 @@
                           .text(function(d) {return d;})
                           .on('click', function (d) {
                               var ascending = d3.select(this).attr("ascending") == 'true';
-                              self.rows.sort(function(a, b) {
-                                  var s1 = self.db.data[b][d].toLowerCase();
-                                  var s2 = self.db.data[a][d].toLowerCase();
-                                  if (ascending)
-                                      return s1 > s2 ? 1 : s1 == s2 ? 0 : -1;
-                                  else
-                                      return s1 < s2 ? 1 : s1 == s2 ? 0 : -1;
-                              });
+                              //string sort
+                              if (self.db.dimensionTypes[d] == CINEMA_COMPONENTS.DIMENSION_TYPE.STRING) {
+                                  self.rows.sort(function(a, b) {
+                                      var s1 = self.db.data[b][d].toLowerCase();
+                                      var s2 = self.db.data[a][d].toLowerCase();
+                                      if (ascending)
+                                          return s1 > s2 ? 1 : s1 == s2 ? 0 : -1;
+                                      else
+                                          return s1 < s2 ? 1 : s1 == s2 ? 0 : -1;
+                                  });
+                              }
+                              //numeric sort
+                              else {
+                                  self.rows.sort(function(a, b) {
+                                      if (ascending)
+                                          return self.db.data[a][d] - self.db.data[b][d];
+                                      else
+                                          return self.db.data[b][d] - self.db.data[a][d];
+                                  });
+                              }
                               d3.select(this)
                                 .attr("ascending", function() {
                                   if (ascending === true)
