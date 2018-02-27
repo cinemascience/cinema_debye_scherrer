@@ -1,7 +1,7 @@
 # Cinema:Debye-Scherrer
 
 Cinema:Debye-Scherrer is an interactive visualization tool for exploring datasets, and it has been applied to multi-dataset Rietveld analyses for the validation of the analyses, scientific discovery, and experimental design.
-This is a web-based tool that be used in a web browser, and it has been built from the Cinema Components (https://github.com/lanl/cinema_components) and D3 (https://d3js.org) JavaScript libraries.
+This is a web-based tool that be used in a web browser, and it has been built from the Cinema Components (https://github.com/cinemascience/cinema_components) and D3 (https://d3js.org) JavaScript libraries.
 The different visualizations (eg. scatter plot) in Cinema:Debye-Scherrer are interactive and linked with each other.
 This means that hovering or clicking on paths, rows, or points in one visualization shows the result in the other visualizations.
 An interactive and linked visualization tool provides a quick way to explore datasets.
@@ -147,6 +147,6 @@ However, in the meantime, if you use the Cinema:Debye-Scherrer software you may 
   title = "{Interactive Visualization of Multi-Dataset Rietveld Analyses using Cinema:Debye-Scherrer}",
   year = "{2018}",
   notes = "{Manscript submitted for publication}",
-  url = "{https://github.com/lanl/cinema\_debye\_scherrer}"
+  url = "{https://github.com/cinemascience/cinema\_debye\_scherrer}"
 }
 ```
