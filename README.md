@@ -143,10 +143,10 @@ We have submitted an article that details Cinema:Debye-Scherrer to a peer-review
 However, in the meantime, if you use the Cinema:Debye-Scherrer software you may reference our work with the following citation
 ```
 @article{CinemaDebyeScherrer2018,
-  author = "{Vogel, S. and Biwer, C. and Rogers, D. H. and Ahrens, J. P. and Hackenberg, R. E. and Onken, D. and Zhang, J.}",
+  author = "{Vogel, S. C. and Biwer, C. M. and Rogers, D. H. and Ahrens, J. P. and Hackenberg, R. E. and Onken, D. and Zhang, J.}",
   title = "{Interactive Visualization of Multi-Dataset Rietveld Analyses using Cinema:Debye-Scherrer}",
   year = "{2018}",
-  notes = "{Manscript submitted for publication}",
+  journal = "{J. Appl. Crystallogr.}",
   url = "{https://github.com/cinemascience/cinema\_debye\_scherrer}"
 }
 ```
