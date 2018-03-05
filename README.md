@@ -139,8 +139,7 @@ The text field renames the downloaded file; by default, it is set to ``databases
 
 # Citation
 
-We have submitted an article that details Cinema:Debye-Scherrer to a peer-reviewed journal, and this citation will be updated upon acceptance to a journal.
-However, in the meantime, if you use the Cinema:Debye-Scherrer software you may reference our work with the following citation
+If you use the Cinema:Debye-Scherrer software, then we ask you reference our work with the following citation
 ```
 @article{CinemaDebyeScherrer2018,
   author = "{Vogel, S. C. and Biwer, C. M. and Rogers, D. H. and Ahrens, J. P. and Hackenberg, R. E. and Onken, D. and Zhang, J.}",
