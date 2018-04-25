@@ -81,7 +81,6 @@
 			self.dimensions = data_arr[0];
 			//Convert rows from arrays to objects
 			self.data = data_arr.slice(1).map(function(d) {
-				console.log("AA", d);
 				var obj = {};
 				self.dimensions.forEach(function(p,i){
                                     if (d[i] != undefined)
