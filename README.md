@@ -22,6 +22,16 @@ Paths can be permanently highlighted by clicking; permanently highlighted paths 
 In this section, we provide instructions for common operations.
 There is an example dataset included in this repository at ``data/example.cdb`` that is used throughout these instructions.
 
+## Installation
+
+Download the code from GitHub with
+```
+git clone https://github.com/cinemascience/cinema_debye_scherrer.git
+cd cinema_debye_scherrer
+```
+
+You should be able to view Cinema:Debye-Scherrer now by directing a browser to ``main.html`` in this directory.
+
 ## Simple tutorial
 
 Here, we provide some steps that guide the user through exploring the example dataset.
@@ -90,7 +100,7 @@ Below, we describe the attributes that describe the attributes in ``databases.js
 
 The required attributes for each entry in ``databases.json`` are
   * ``name``: A short description of the dataset.
-  * ``directory``: A relative path to the Cinema database.
+  * ``directory``: A relative path to the Cinema database. For simplicitly, its best to copy your directory with data into the ``data`` of this repository. You can then copy an example entry from ``databases.json`` to point to your data dir in ``data``. Note, that this file uses JSON syntax so make sure you include the commas as the examples do, if you are unfamilar with this format.
 
 Optional attributes include
   * ``filter`` : A regular expression for columns to initially exclude in the visualizations. You can add and hide columns afterwards using controls in the viewer.
