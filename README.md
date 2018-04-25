@@ -116,6 +116,17 @@ The following are a description of the example entries
   * ``Example (Test Expression)``: An example that shows how to initially only display columns that contain ``CHISQ`` or ``PF6``.
   * ``Example (Display All)``: Simple example that shows the entire dataset.
 
+## Empty cells in CSV file
+
+If there is a row in your CSV file that should not have a value, you may either insert a "NaN" into that column or leave it blank.
+For example, either should work
+```
+x0,x1,x2,x3
+10,20,30,40
+10,20,NaN,40
+10,20,,40
+```
+
 ## Parameter names with special characters
 
 Cinema:Debye-Scherrer uses regular expressions to sort parameters.
