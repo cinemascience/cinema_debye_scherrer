@@ -59,7 +59,7 @@
 
 		//override this.dimensions to include only FILE dimensions
 		this.dimensions = this.dimensions.filter(function(d) {
-			return (/^FILE/).test(d);
+			return (/^\s*FILE/).test(d);
 		});
 		/** @type {boolean} Whether any FILE dimensions exist in the dataset */
 		this.hasFileDimensions = this.dimensions.length != 0;
