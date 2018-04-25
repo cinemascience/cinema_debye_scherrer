@@ -118,8 +118,8 @@ The following are a description of the example entries
 
 ## Empty cells in CSV file
 
-If there is a row in your CSV file that should not have a value, you may either insert a "NaN" into that column or leave it blank.
-For example, either should work
+If there is a row in your CSV file that should not have a value, you may either insert a ``NaN`` into that column or leave it blank.
+For example, these are all acceptable rows
 ```
 x0,x1,x2,x3
 10,20,30,40
