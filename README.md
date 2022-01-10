@@ -55,9 +55,9 @@ To start, you should open the file ``main.html`` with your preferred browser.
 
 This should be sufficient for many browsers; however, some browsers may have advanced security settings enabled which prevents reading data files from your computer.
 If you encounter problems viewing your datasets, then you can run a simple HTTP server to serve your datasets.
-To start a HTTP server using Python on an Unix operating system, in the directory containing ``main.html`` do
+To start a HTTP server using Python 3 on an Unix operating system, in the directory containing ``main.html`` do
 ```
-python -m SimpleHTTPServer
+python -m http.server
 ```
 Record the port assigned in the terminal from this command; typically, the port assigned is 8000.
 Then, you can navigate to ``main.html`` from the URL ``http://localhost:8000/main.html``.
@@ -65,7 +65,7 @@ Then, you can navigate to ``main.html`` from the URL ``http://localhost:8000/mai
 ## Input data format
 
 The input data format to Cinema:Debye-Scherrer is a called a Cinema database.
-We use the Cinema database specification D which is described in detail at https://github.com/lanl/cinema/blob/master/specs/dietrich/01/cinema_specD_v011.pdf.
+We use the Cinema database specification D which is described in detail at https://github.com/cinemascience/cinema/blob/master/specs/dietrich/01/cinema_specD_v011.pdf.
 
 Here, we provide a brief summary of the specification.
 A Cinema database is a directory with a ``data.csv`` file.
