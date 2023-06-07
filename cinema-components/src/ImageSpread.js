@@ -211,6 +211,26 @@
 	CINEMA_COMPONENTS.ImageSpread.prototype = Object.create(CINEMA_COMPONENTS.Component.prototype);
 	CINEMA_COMPONENTS.ImageSpread.prototype.constructor = CINEMA_COMPONENTS.ImageSpread;
 
+        /**
+         * Set the chart's current highlighted data to the data represented
+         * by the given list of indices
+         */
+        CINEMA_COMPONENTS.ImageSpread.prototype.setHighlightedPoints = function(indices) {
+                this.highlighted = indices;
+                this.redrawHighlightedPoints();
+        }
+
+        /**
+         * Redraw the current selection of points
+         */
+        CINEMA_COMPONENTS.ImageSpread.prototype.redrawHighlightedPoints = function() {
+            var self = this;
+            d3.selectAll(".displayLabel").attr("style", "");
+            this.highlighted.forEach(function(d) {
+                d3.select(".displayLabel[index='" + d + "']").attr("style", "color:red");
+                });
+            };
+
 	/**
 	 * Should be called every time the size of the component's container changes.
 	 * Updates the sizing of the imageSpread container
@@ -303,6 +323,7 @@
 						//Create content of each file display
 						.each(function(f,i) {
 							d3.select(this).select('.display').html('');
+                                                        d3.select(this).select('.displayLabel').attr('index', d);
 							//Create an image in the display if the it is an image filetype
 							if (isValidFiletype(getFileExtension(f)))
 								d3.select(this).select('.display')
