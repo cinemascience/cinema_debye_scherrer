@@ -490,12 +490,12 @@ function updateViewContainerSize() {
 function handleMouseover(index, event) {
     if (index != null) {
         pcoord.setHighlightedPaths([index]);
-        if (currentView == viewType.SCATTERPLOT || currentView == viewType.TABLE)
+        if (currentView == viewType.IMAGESPREAD || currentView == viewType.SCATTERPLOT || currentView == viewType.TABLE)
             view.setHighlightedPoints([index]);
     }
     else {
         pcoord.setHighlightedPaths([]);
-        if (currentView == viewType.SCATTERPLOT || currentView == viewType.TABLE)
+        if (currentView == viewType.IMAGESPREAD || currentView == viewType.SCATTERPLOT || currentView == viewType.TABLE)
             view.setHighlightedPoints([]);
 }
     if (currentView != viewType.TABLE)
