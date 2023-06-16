@@ -62,6 +62,17 @@ python -m http.server
 Record the port assigned in the terminal from this command; typically, the port assigned is 8000.
 Then, you can navigate to the URL ``http://localhost:8000/`` (or ``http://localhost:8000/index.html``)
 
+### Using Docker
+
+To serve Cinema:Debye-Scherrer using [Docker](https://docs.docker.com/),
+you can spin up a web server using [nginx container image](https://hub.docker.com/_/nginx/) as below:
+
+```
+docker run -p 8000:80 -v ./:/usr/share/nginx/html:ro nginx:stable
+```
+
+Then, you can navigate to the URL ``http://localhost:8000/`` (or ``http://localhost:8000/index.html``)
+
 ## Input data format
 
 The input data format to Cinema:Debye-Scherrer is a called a Cinema database.
