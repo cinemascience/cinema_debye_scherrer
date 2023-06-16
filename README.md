@@ -30,13 +30,13 @@ git clone https://github.com/cinemascience/cinema_debye_scherrer.git
 cd cinema_debye_scherrer
 ```
 
-You should be able to view Cinema:Debye-Scherrer now by directing a browser to ``main.html`` in this directory.
+You should be able to view Cinema:Debye-Scherrer now by directing a browser to ``index.html`` in this directory.
 
 ## Simple tutorial
 
 Here, we provide some steps that guide the user through exploring the example dataset.
 To start
-  1. Open ``main.html`` in your browser.
+  1. Open ``index.html`` in your browser.
   1. From the drop-down menu under "Select Database" at the top of the page, select the "Example (Display All)" option. Then click the button next to it labeled "Load". You should notice more columns appear in the parallel coordinates plot.
   1. In the panel to the left of the parallel coordinates plot, click the "Select All" checkbox under the "Hide" column. This should check all the boxes in the column. Unselect the checkboxes for "Temp [C]", "CHISQ", and "BaBrCl_VOL". Click the checkbox under the "Logscale" column next to "Temp [C]". Now click the "Modify Columns" button. You should see three columns in the parallel coordinates plot. The temperature column ("Temp [C]") should have a logarithmic scale.
   1. In the parallel coordinates plot, you can click on an axes to display on a subset of samples. Hover over the "Temp [C]" axes in the parallel coordiantes plot and the cursor should display a "+" symbol. Click on the "Temp [C]" axes in the parallel coordinates plot near 500 and drag upwards to 800. A gray box should appear over the axes and you should see only the four paths that have temperature values above 500. There should only be four images displayed in the image spread as well.
@@ -51,16 +51,16 @@ To start
 ## Loading the viewer
 
 Cinema:Debye-Scherrer can be opened with a web browser.
-To start, you should open the file ``main.html`` with your preferred browser.
+To start, you should open the file ``index.html`` with your preferred browser.
 
 This should be sufficient for many browsers; however, some browsers may have advanced security settings enabled which prevents reading data files from your computer.
 If you encounter problems viewing your datasets, then you can run a simple HTTP server to serve your datasets.
-To start a HTTP server using Python 3 on an Unix operating system, in the directory containing ``main.html`` do
+To start a HTTP server using Python 3 on an Unix operating system, in the directory containing ``index.html`` do
 ```
 python -m http.server
 ```
 Record the port assigned in the terminal from this command; typically, the port assigned is 8000.
-Then, you can navigate to ``main.html`` from the URL ``http://localhost:8000/main.html``.
+Then, you can navigate to the URL ``http://localhost:8000/`` (or ``http://localhost:8000/index.html``)
 
 ## Input data format
 
